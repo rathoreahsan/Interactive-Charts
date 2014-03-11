@@ -25,7 +25,7 @@ var o = {
 			
 		} else if(dir === "vertical") {
 			originX = 110;
-			originY = 220;
+			originY = 200;
 			barWidth = 110;
 			barMargin = 18;
 			barHeight = 0;
@@ -66,7 +66,7 @@ var o = {
 				});
 				
 				 var index = "count" + i;
-				$('#labels ul').append('<li>' + text + '</li>');
+				elem.find('#labels ul').append('<li>' + text + '</li>');
 				elem.find('.Percentage').append('<span class="count-wrap" style="left :' + (width+15) + 'px; top:' + (originY+5) + 'px;"><span class="count">' + count + '</span><br><span class="percent" id="' + index + '">' + percentage +'</span></span>');
 				
 				z.animate({
@@ -113,7 +113,7 @@ var o = {
 				var left = (originX - barWidth) + (barWidth - idx_width) / 2; 
 				
 				elem.find('.Percentage #' + index).css({
-					bottom : height,
+					bottom : height+5,
 					left : left 
 				});
 				
@@ -125,7 +125,7 @@ var o = {
 				originX = originX + barWidth + barMargin;
 				
 				z.mouseover(function(){
-					this.stop(true, true).animate({ y: 200, 'stroke-width': 5, opacity: .75 }, 100, 'easein');
+					this.stop(true, true).animate({ y: 220, 'stroke-width': 5, opacity: .75 }, 100, 'easein');
 				}).mouseout(function(){
 					this.stop(true, true).animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 100, 'easeout')
 				});
@@ -133,4 +133,4 @@ var o = {
 			
 		});
 	}
-}
+	}
