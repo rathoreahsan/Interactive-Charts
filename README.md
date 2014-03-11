@@ -6,6 +6,6 @@ For documentation and more information, see: http://raphaeljs.com/
 
 **v1.0: Includes**
 
-* Donut Chart
-* Animated Horizontal and Vertical Bar Chart
-* Animated Progress Donut  
+* Donut Chart - Demo: http://cdpn.io/nwquz
+* Animated Horizontal and Vertical Bar Chart - Demo: Coming Soon
+* Animated Progress Donut - Demo: Coming Soon  
