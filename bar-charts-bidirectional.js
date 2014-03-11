@@ -111,19 +111,19 @@ var o = {
 				
 				switch(clength) {
 					case 1:
-						left = originX-55;
+						left = originX-40;
 					break;	
 					
 					case 2:
-						left = originX-60;
+						left = originX-45;
 					break;
 					
 					case 3:
-						left = originX-65;
+						left = originX-50;
 					break;
 					
 					case 4:
-						left = originX-70;
+						left = originX-55;
 					break;
 				}
 				
