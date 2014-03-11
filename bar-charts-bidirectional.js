@@ -67,11 +67,11 @@ var o = {
 				
 				 var index = "count" + i;
 				$('#labels ul').append('<li>' + text + '</li>');
-				elem.find('.Percentage').append('<span class="count-wrap" style="left :' + ((width*1.7)+15) + 'px; top:' + (originY+5) + 'px;"><span class="count">' + count + '</span><br><span class="percent" id="' + index + '">' + percentage +'</span></span>');
+				elem.find('.Percentage').append('<span class="count-wrap" style="left :' + (width+15) + 'px; top:' + (originY+5) + 'px;"><span class="count">' + count + '</span><br><span class="percent" id="' + index + '">' + percentage +'</span></span>');
 				
 				z.animate({
 					x:originX,
-					width:width*1.7
+					width:width
 				}, speed);
 				
 				originY = originY + barHeight + barMargin;
