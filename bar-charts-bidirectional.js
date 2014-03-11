@@ -106,29 +106,16 @@ var o = {
 					transform : 'r180 ' + originX + ' ' + originY
 				});
 				
-				var left = 0;
-				var clength = count.length;
-				
-				switch(clength) {
-					case 1:
-						left = originX;
-					break;	
-					
-					case 2:
-						left = originX;
-					break;
-					
-					case 3:
-						left = originX;
-					break;
-					
-					case 4:
-						left = originX;
-					break;
-				}
-				
 				var index = "count" + i;
-				elem.find('.Percentage').append('<span class="count-wrap" style="bottom :' + (height+5) + 'px; left:' + left + 'px;"><span class="count">' + count + '</span></span>');
+				elem.find('.Percentage').append('<span class="count-wrap" id="' + index + '"><span class="count">' + count + '</span></span>');
+				
+				var idx_width = elem.find('.Percentage #' + index).outerWidth();
+				var left = (originX - barWidth) + (barWidth - idx_width) / 2; 
+				
+				elem.find('.Percentage #' + index).css({
+					bottom : height+5,
+					left : left 
+				});
 				
 				z.animate({
 					y:originY,
