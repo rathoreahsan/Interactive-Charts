@@ -26,11 +26,11 @@ var o = {
 		} else if(dir === "vertical") {
 			originX = 100;
 			originY = 220;
-			barWidth = 100;
+			barWidth = 110;
 			barMargin = 18;
 			barHeight = 0;
 			maxVal = mv;
-			r = Raphael(ElemDiagram, 576, 220);
+			r = Raphael(ElemDiagram, 620, 220);
 		}
 	 	
 		
