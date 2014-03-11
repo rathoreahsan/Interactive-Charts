@@ -92,17 +92,13 @@
 				// ************* //
 			
 				p.mouseover(function () {
-					//p.stop().animate({transform: "s1.05 1.05 " + cx + " " + cy}, ms, "easin");
 					p.stop().animate({transform: "t" + left + "," + top + ", s1.05 1.05"}, ms, "easin");
-					//txt.stop().animate({opacity: 1}, ms, "easin");
 				}).mouseout(function () {
 					p.stop().animate({transform: ""}, ms, "easeout");
-					//txt.stop().animate({opacity: 0}, ms, "easeout");
 				});
 				
 				angle += angleplus;
 				chart.push(p);
-				//chart.push(txt);
 				start += .1;
 							
 			};
