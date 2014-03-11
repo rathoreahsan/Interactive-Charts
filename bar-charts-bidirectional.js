@@ -24,7 +24,7 @@ var o = {
 			r = Raphael(ElemDiagram, 476, 180);
 			
 		} else if(dir === "vertical") {
-			originX = 100;
+			originX = 110;
 			originY = 220;
 			barWidth = 110;
 			barMargin = 18;
