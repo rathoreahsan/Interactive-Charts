@@ -125,7 +125,7 @@ var o = {
 				originX = originX + barWidth + barMargin;
 				
 				z.mouseover(function(){
-					this.stop(true, true).animate({ y: 220, 'stroke-width': 5, opacity: .75 }, 100, 'easein');
+					this.stop(true, true).animate({ y: 200, 'stroke-width': 5, opacity: .75 }, 100, 'easein');
 				}).mouseout(function(){
 					this.stop(true, true).animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 100, 'easeout')
 				});
