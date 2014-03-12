@@ -8,4 +8,4 @@ For documentation and more information, see: http://raphaeljs.com/
 
 * Donut Chart - Demo: http://cdpn.io/nwquz
 * Animated Horizontal and Vertical Bar Chart - Demo: http://cdpn.io/fcCwF
-* Animated Progress Donut - Demo: Coming Soon  
+* Animated Progress Donut - Demo: http://cdpn.io/yGBCd
