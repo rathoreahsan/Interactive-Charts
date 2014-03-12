@@ -6,9 +6,7 @@
 			chart = this.set();
 		
 		function sector(cx, cy, r, startAngle, endAngle, params) {
-			console.log(params.fill);
-			console.log(startAngle);
-			console.log(endAngle);
+			
 			var x1 = cx + r * Math.cos(-startAngle * rad),
 				x2 = cx + r * Math.cos(-endAngle * rad),
 				y1 = cy + r * Math.sin(-startAngle * rad),
