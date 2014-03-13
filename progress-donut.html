@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Untitled Document</title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+    <style>
+    	/* general css: begins */
+		* {margin: 0px; padding: 0px;}
+		body{ background-color: #000; }
+
+		h2 {
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 600;
+		  font-size: 22px;
+		  margin: 15px auto;
+		  width: 96%;
+		  color: #fff;
+		  overflow: hidden;
+		}
+		
+		.author {
+		  font-size: 16px; 
+		  color: #fcaf17;
+		}
+		
+		.chart {
+		  border-radius: 10px;
+		  padding: 15px;
+		  position:relative; 
+		  min-height: 200px;
+		  margin: 15px auto;
+		  width: 96%;
+		  box-sizing: border-box;
+		  background-color: #fff;
+		  overflow: hidden;
+		}
+		
+		@media only screen and (min-width:601px) { 
+		  .title { display: block; margin-right: 150px; }
+		  .author { float:right; width: 150px; line-height : 32px; }
+		  .lt { display: none; }
+		  
+		  #DonutHelpdeskPerformance { 
+			width: 200px; 
+			float: left;
+		  }
+		
+		  .HDP-Percentage {
+			display: block;  
+			margin-left: 200px;
+		  }
+		  
+		}
+		
+		@media only screen and (min-width:511px) and (max-width:600px) {
+		  .title,
+		  .author { display: block; text-align:center; }
+		  .author { margin-top: 5px; line-height : 26px; }
+		  .lt { display: block; }
+		  .rt { display: none; }
+		  
+		  #DonutHelpdeskPerformance { 
+			width: 200px; 
+			float: left;
+		  }
+		
+		  .HDP-Percentage {
+			display: block;  
+			margin-left: 200px;
+		  }
+		}
+		
+		@media only screen and (max-width:510px) {
+		  .title,
+		  .author { display: block; text-align:center; }
+		  .author { margin-top: 5px; line-height : 26px; }
+		  .lt { display: block; }
+		  .rt { display: none; }
+		  
+		  #DonutHelpdeskPerformance { 
+			width: 200px; 
+			float: none;
+			margin: 0 auto; 
+		  }
+		
+		  .HDP-Percentage {
+			display: block;
+			float: none;    
+		  }
+		  
+		  .HDP-Percentage div {
+			padding-top: 0px !important;
+		  }
+		}
+		
+		/* general css: ends */
+		
+		
+		
+		.HDP-Percentage h3 { 
+		  font-size: 20px; 
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 600;
+		  color: #828283; 
+		  line-height: 22px; 
+		}
+		
+		.HDP-Percentage #completed { 
+		  font-size: 45px; 
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 600;
+		}
+    </style>
+</head>
+
+<body>
+
+<h2>
+  <span class="author rt">By Ahsan K. Rathore</span>
+  <span class="title">Animated Progress Donut - JS Raphael</span>
+  <span class="author lt">By Ahsan K. Rathore</span>
+</h2>
+
+<!-- Chart: begins -->
+<div class="chart">
+  
+  <div id="DonutHelpdeskPerformance"></div>
+  
+  <div class="HDP-Percentage">
+    <div style="text-align:center; padding-top: 75px;">
+      <h3>Percentage Completed</h3>
+      <span id="completed" style="display: block;"></span>
+    </div>
+  </div>
+                                    
+  <div class="UserInfoWrap">
+
+    <table id="HelpdeskPerformanceStats" cellpadding="0" cellspacing="0" border="0" style="display:none;">
+      <tbody>
+        <tr>
+          <td class="total-tickets">Total Tickets</td>
+          <td class="count">289</td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="height:10px;"></td>
+        </tr>
+
+        <tr>
+          <td class="completed">Completed</td>
+          <td class="count">110</td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="height:10px;"></td>
+        </tr>
+
+        <tr>
+          <td class="in-progress">In Progress</td>
+          <td class="count">171</td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="height:10px;"></td>
+        </tr>
+
+        <tr>
+          <td class="not-read">Not Read</td>
+          <td class="count">8</td>
+        </tr>
+      </tbody>
+      
+    </table>
+
+  </div>
+  
+</div>
+
+<!-- Script Files: begins -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="raphael.js"></script>
+<script type="text/javascript" src="progress-donut.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var total = parseInt( $('#HelpdeskPerformanceStats').find('.total-tickets').next('.count').text() ),
+			completed =  parseInt( $('#HelpdeskPerformanceStats').find('.completed').next('.count').text() ),
+			PercentCompleted =  parseInt( ( completed / total ) * 100 ),
+			ProgressBGColor = '#9f6b04',
+			ProgressColor = '#fbaf16',
+			PercentageContainer = $('#completed'),
+			StrokeWidth = 55,
+			x = 100,
+			y = 100,
+			radius = 65;
+		
+		Raphael("DonutHelpdeskPerformance", 200, 200).ProgressChart(x, y, radius, PercentCompleted, ProgressBGColor, ProgressColor, StrokeWidth, PercentageContainer);
+	});
+</script>
+<!-- Script Files: ends -->
+
+</body>
+</html>
