@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Untitled Document</title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+    <style>
+    	/* general css: begins */
+		* {margin: 0px; padding: 0px;}
+		body{ background-color: #000; }
+
+		h2 {
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 600;
+		  font-size: 22px;
+		  margin: 15px auto;
+		  width: 96%;
+		  color: #fff;
+		  overflow: hidden;
+		}
+		
+		.author {
+		  font-size: 16px; 
+		  line-height : 22px;
+		  color: #fcaf17;
+		}
+		
+		.chart {
+		  border-radius: 10px;
+		  padding: 0 15px;
+		  position:relative; 
+		  min-height: 200px;
+		  margin: 15px auto;
+		  width: 96%;
+		  box-sizing: border-box;
+		  background-color: #fff;
+		  overflow: hidden;
+		}
+		
+		@media only screen and (min-width:601px) {
+		  #DonutTicketsByDepartment { 
+			width: 200px;  
+			float: right; 
+		  }
+		
+		  #TicketByDepartmentLegends { 
+			display:block; 
+			margin-right: 250px;
+			list-style-type: none;
+		  }
+		  
+		  .title { display: block; margin-right: 150px; }
+		  .author { float:right; width: 150px; }
+		  .lt { display: none; }
+		  
+		}
+		
+		@media only screen and (max-width:600px) {
+		  
+		  .chart { text-align: center; }
+		  
+		  #DonutTicketsByDepartment { 
+			width: 200px;
+			margin: 0 auto;
+			float: none;
+		  }
+		
+		  #TicketByDepartmentLegends {
+			list-style-type: none;
+			padding-top: 0px !important;
+			margin : 0 auto;
+			display: inline-block;
+			text-align: left;
+		  }
+		  
+		  .title,
+		  .author { display: block; text-align:center; }
+		  .author { margin-top: 5px; }
+		  .lt { display: block; }
+		  .rt { display: none; }
+		  
+		}
+		
+		#TicketByDepartmentLegends li { 
+		  margin-bottom: 10px; 
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 400;
+		  color:#000; 
+		}
+		
+		#TicketByDepartmentLegends li span.icon { 
+		  width: 22px; 
+		  height: 22px; 
+		  float: left;
+		}
+		
+		#TicketByDepartmentLegends li span.label {
+		  display: block;
+		  margin-left: 30px;
+		  font-size: 15px;
+		  line-height: 22px;
+		}
+    </style>
+</head>
+
+<body>
+
+<h2>
+  <span class="author rt">By Ahsan K. Rathore</span>
+  <span class="title">Responsive Donut Chart - JS Raphael</span>
+  <span class="author lt">By Ahsan K. Rathore</span>
+</h2>
+
+<div class="chart">
+  
+  <table id="TicketByDepartment" cellpadding="0" cellspacing="0" border="0" style="visibility: hidden;">
+    <tbody>
+      <tr>
+        <th scope="row">Store Support - 432 Tickets,</th>
+        <td>39%</td>
+      </tr>
+      <tr>
+        <th scope="row">Accounting - 432 Tickets,</th>
+        <td>16%</td>
+      </tr>
+      <tr>
+        <th scope="row">Marketing - 388 Leads,</th>
+        <td>35%</td>
+      </tr>
+      <tr>
+        <th scope="row">Others - 99 Leads,</th>
+        <td>10%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="DonutTicketsByDepartment"></div>
+  <ul id="TicketByDepartmentLegends"></ul>
+  
+</div>
+
+<!-- Script Files: begins -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="raphael.js"></script>
+<script type="text/javascript" src="donut-chart.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var values = [],
+			labels = [],
+			legends = true,
+			legendsElement = $('#TicketByDepartmentLegends'),
+			colors = ['#fcaf17','#aa85bc','#7cbe88','#e67157'];
+		
+		$("#TicketByDepartment tr").each(function () {
+		  values.push(parseInt($("td", this).text(), 10));
+		  labels.push($("th", this).text());
+		});
+		
+		$("#TicketByDepartment").hide();
+		var r = Raphael("DonutTicketsByDepartment", 200, 200);
+		r.donutChart(100, 100, 88, 35, values, labels, colors, legends, legendsElement, colors);
+	});
+</script>
+<!-- Script Files: ends -->
+
+</body>
+</html>
