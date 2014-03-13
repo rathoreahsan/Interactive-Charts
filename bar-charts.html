@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Untitled Document</title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+    <style>
+    	/* general css: begins */
+		* {margin: 0px; padding: 0px;}
+		body{ background-color: #000; }
+		
+		h2 {
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 600;
+		  font-size: 22px;
+		  margin: 15px auto;
+		  width: 650px;
+		  color: #fff;
+		  overflow: hidden;
+		}
+		
+		.author {
+		  font-size: 16px; 
+		  line-height : 22px;
+		  color: #fcaf17;
+		}
+		
+		.chart {
+		  border-radius: 10px;
+		  padding: 0 15px;
+		  position:relative; 
+		  min-height: 180px;
+		  margin: 15px auto;
+		  width: 650px;
+		  box-sizing: border-box;
+		  background-color: #fff;
+		  overflow: hidden;
+		}
+		
+		.title { display: block; margin-right: 150px; }
+		.author { float:right; width: 150px; }
+		/* general css: ends */
+		
+		
+		/* Tickets By Stage Chart */
+		.get { display:none; }
+		
+		#TicketsByStageChart {
+		  position:relative; 
+		  min-height: 180px;  
+		  overflow:hidden;
+			
+		}
+		
+		#TicketsCountChart {
+		  padding: 15px;
+		}
+		
+		#TicketsByStageDiagram { 
+		  float: left;
+		  width: 476px;
+		}
+		#TicketsByStageDiagram,
+		#TicketCountDiagram {
+		  z-index: 2;
+		  position:relative;
+		}
+		
+		#labels { 
+		  width: 100px; 
+		  float: left; 
+		  text-align: left;
+		}
+		
+		#labels ul  { 
+		  margin: 15px 0 0 0;
+		  padding: 0; 
+		  list-style-type: none; 
+		}
+		
+		#labels ul li {
+		   height: 45px; 
+		  line-height: 45px;
+		  margin-bottom: 10px; 
+		  font-size: 16px; 
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 400;
+		}
+		
+		#TicketsByStage .Percentage { 
+		  position: absolute; 
+		  top: 0px; 
+		  left: 100px; 
+		  display:block;  
+		  width: 100px; 
+		  height:200px; 
+		  z-index: 1; 
+		}
+		
+		#TicketsCountChart .Percentage { 
+		  position: absolute; 
+		  top: 30px; 
+		  bottom: 0px; 
+		  left:0px; 
+		  display:block; 
+		  width: 570px;
+		  height:200px; 
+		  z-index: 1; 
+		}
+		
+		.Percentage span { 
+		  display: inline-block; 
+		  line-height:18px; 
+		}
+		
+		.Percentage span.count-wrap {  
+		  position: absolute; 
+		  z-index: 1; 
+		}
+		
+		.Percentage span.count {  
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 600;
+		  font-size: 18px; 
+		}
+		
+		.Percentage span.percent { 
+		  font-family: 'Titillium Web', sans-serif;
+		  font-weight: 400;
+		  font-size: 17px; 
+		} 
+		
+		.stage input[type:hidden],
+		.stage span.text { float: left; }
+    </style>
+</head>
+
+<body>
+
+<h2>
+  <span class="author rt">By Ahsan K. Rathore</span>
+  <span class="title">Animated Bar Chart Horizontal - JS Raphael</span>
+</h2>
+
+<!-- Chart: begins -->
+<div id="TicketsByStage" class="chart">
+
+  <!-- Chart Content: begins -->
+  <div id="TicketsByStageChart"> 
+
+    <!-- Chart Labels: begins -->
+    <div id="labels">
+      <ul></ul>
+    </div>
+    <!-- Chart Labels: ends -->
+
+    <!-- Chart Diagram: begins -->
+    <div id="TicketsByStageDiagram"></div>
+    <!-- Chart Diagram: begins -->
+
+    <!-- Chart Values: begins -->
+    <div class="get">
+      <div class="stage">
+        <span class="text">In Progress</span>
+        <input type="hidden" class="percent" value="612" />
+        <input type="hidden" class="color" value="#f8cb72" />
+      </div>
+      <div class="stage">
+
+        <span class="text">Completed</span>
+        <input type="hidden" class="percent" value="365" />
+        <input type="hidden" class="color" value="#fcaf17" />
+      </div>
+      <div class="stage">
+        <span class="text">Not Read</span>
+        <input type="hidden" class="percent" value="37" />
+        <input type="hidden" class="color" value="#9f6b04" />
+
+      </div>
+    </div>
+    <!-- Chart Values: ends -->
+
+    <!-- Chart Percentage and Count: begins -->
+    <div class="Percentage FontTitilRegular"></div>
+    <!-- Chart Percentage and Count: ends -->
+
+  </div>
+  <!-- Chart Content: ends -->
+  
+</div>
+<!-- Chart: ends -->
+
+<h2>
+  <span class="author rt">By Ahsan K. Rathore</span>
+  <span class="title">Animated Bar Chart Vertical - JS Raphael</span>
+</h2>
+
+<!-- Chart Content: begins --> 
+<div id="TicketsCountChart" class="chart">
+
+  <!-- Chart Diagram: begins -->
+  <div id="TicketCountDiagram" style="margin:30px 0 0 0;"></div>
+  <!-- Chart Diagram: begins -->
+
+  <!-- Chart Values: begins -->
+  <div class="get">
+
+    <div class="stage">
+      <span class="text">Not Read</span>
+      <input type="hidden" class="percent" value="25" />
+      <input type="hidden" class="color" value="#9f6b04" />
+    </div>
+    <div class="stage">
+      <span class="text">Not Read</span>
+      <input type="hidden" class="percent" value="95" />
+      <input type="hidden" class="color" value="#9f6b04" />
+    </div>
+    <div class="stage">
+      <span class="text">Not Read</span>
+      <input type="hidden" class="percent" value="174" />
+      <input type="hidden" class="color" value="#9f6b04" />
+    </div>
+    <div class="stage">
+      <span class="text">Completed</span>
+      <input type="hidden" class="percent" value="300" />
+      <input type="hidden" class="color" value="#fcaf17" />
+    </div>
+    <div class="stage">
+      <span class="text">In Progress</span>
+      <input type="hidden" class="percent" value="1300" />
+      <input type="hidden" class="color" value="#f8cb72" />
+    </div>
+  </div>
+  <!-- Chart Values: ends -->
+
+  <!-- Chart Percentage and Count: begins -->
+  <div class="Percentage FontTitilRegular"></div>
+  <!-- Chart Percentage and Count: ends -->
+
+  <!-- Clearing Float: begins -->
+  <div class="clearfix"></div>
+  <!-- Clearing Float: ends -->
+
+</div>
+<!-- Chart Content: ends -->
+
+<!-- Script Files: begins -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="raphael.js"></script>
+<script type="text/javascript" src="bar-charts-bidirectional.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var maxval_horizontal = 0,
+		maxval_vertical = 0;
+	
+		// Horizontal
+		$('#TicketsByStageChart .get').find('.percent').each(function(){
+		  maxval_horizontal += parseInt( $(this).val() );
+		});
+		o.init('horizontal', $('#TicketsByStageChart'), 'TicketsByStageDiagram', maxval_horizontal );
+		
+		// Vertical
+		$('#TicketsCountChart').find('.percent').each(function(){
+		  maxval_vertical += parseInt( $(this).val() )
+		});
+		o.init('vertical', $('#TicketsCountChart'), 'TicketCountDiagram', maxval_vertical );
+	});
+</script>
+<!-- Script Files: ends -->
+
+</body>
+</html>
